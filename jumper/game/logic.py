@@ -35,26 +35,20 @@ class Logic():
             word: the word selected from the file
         """
         countTimes = 0 # used to count the number of times the letter appears
-
+        newString = []
         for i in range(len(word)): # loop through the word
             if word[i] == guess: # check if any of the letters match the guess
                 countTimes += 1
-                self.letterLocation.append(i) # add the location to the list
+                newString.append(i) # add the location to the list
         if countTimes == 0: # if the letters never matched, it was a bad guess
             self.numMistake += 1
-        
-    def resetLocation(self):
-        """Used to reset the list of locations for the next guess
-
-        Args: 
-            self: an instance of Logic()
-        """
-        self.letterLocation = []
+        self.letterLocation = newString
         print(self.letterLocation)
+        
 
 # to be removed as the program is completed.
-# word = "bananas"
-# guess = "a"     
-# run = Logic()
-# run.findLetter(guess, word)
-# run.resetLocation()
+word = "horse"
+guess = "a"     
+run = Logic()
+run.findLetter(guess, word)
+
