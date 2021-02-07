@@ -60,7 +60,7 @@ class Director:
         # Letting console know how long the word is so it can make the
         # blank line an appropriate legnth.
         self.console.underscores(len(self.word.word))
-
+        self.console.picture(0)
 
         while self.keep_playing:
             # I am assuming it will be a method that updates an attribute
