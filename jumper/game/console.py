@@ -11,6 +11,10 @@ class Console():
     Attributes:
         prompt (string): The prompt to display on each line.
     """
+    
+    def __init__(self):
+        
+        self.guess = 'z'
 
     def first_image(self):
         x = """  
@@ -41,7 +45,7 @@ class Console():
         # whether the letter is a bad guess or a good guess
         # and then passes back to me in the output function
         # if it was a bad guess
-        return input('Guess a letter [a-z]: ')
+        return self.guess('Guess a letter [a-z]: ')
 
 
     def underscores(self, word_length):
