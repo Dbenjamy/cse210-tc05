@@ -28,6 +28,7 @@ class Word():
         self.medium = []
         self.long = []
         self.read_file()
+        self.set_list()
 
 
     def read_file(self):
@@ -39,7 +40,6 @@ class Word():
         # File to be read from
         # I couldn't get it to work using just "words.txt"
         path = _path_.abspath("./jumper/game/words.txt")
-        
         # opens the file, writes the contents to list, and closes the file
         with open(path, "r") as text:
             self.lines_list = text.read().splitlines() # each word will be at a different location (address) in the list
@@ -62,7 +62,7 @@ class Word():
             elif length >= 5 and length < 8:
                 self.medium.append(self.lines_list[i])      # middle
             elif length >= 8:
-                self.long.append(self.lines_list[i])        # longest
+                self.long.append(self.lines_list[i])      # longest
         
 
     def get_word(self, difficulty):
@@ -80,14 +80,17 @@ class Word():
 
         if difficulty == 1:         # shortest
             limit = len(self.short)
+            print(limit)
             index = random.randint(0, limit-1)
             self.word = self.short[index]
         elif difficulty == 2:       # medium
             limit = len(self.medium)
+            print(limit)
             index = random.randint(0, limit-1)
             self.word = self.medium[index]
         elif difficulty == 3:       # longest
             limit = len(self.long)
+            print(limit)
             index = random.randint(0, limit-1)
             self.word = self.long[index]
 
