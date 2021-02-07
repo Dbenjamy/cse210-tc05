@@ -9,10 +9,10 @@ class Logic():
         self.findLetter(word, guess):
             This method counts the number of times a letter appears in a word
             and tracks the number of incorrect guesses made by the user.
-        self.reset
+        self.resetLocation
             This will reset the attribute self.letterLocation
             I put this in it's own method so that letterLocation wouldn't reset
-            to empty before logic gets it. Calling it from Director at the end
+            to empty before console gets it. Calling it from Director at the end
             of the game loop could be a good idea.
     """
 
@@ -50,7 +50,7 @@ class Logic():
             self: an instance of Logic()
         """
         self.letterLocation = []
-        print(self.letterLocation)
+        # print(self.letterLocation)
 
 # to be removed as the program is completed.
 # word = "bananas"
