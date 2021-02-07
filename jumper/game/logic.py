@@ -9,11 +9,6 @@ class Logic():
         self.findLetter(word, guess):
             This method counts the number of times a letter appears in a word
             and tracks the number of incorrect guesses made by the user.
-        self.reset
-            This will reset the attribute self.letterLocation
-            I put this in it's own method so that letterLocation wouldn't reset
-            to empty before logic gets it. Calling it from Director at the end
-            of the game loop could be a good idea.
     """
 
     def __init__(self):
@@ -43,12 +38,10 @@ class Logic():
         if countTimes == 0: # if the letters never matched, it was a bad guess
             self.numMistake += 1
         self.letterLocation = newString
-        print(self.letterLocation)
         
-
 # to be removed as the program is completed.
-word = "horse"
-guess = "a"     
-run = Logic()
-run.findLetter(guess, word)
+# word = "horse"
+# guess = "a"     
+# run = Logic()
+# run.findLetter(guess, word)
 
