@@ -1,6 +1,6 @@
 from game.word import Word
-# from game.console import Console
-# from game.logic import Logic
+from game.console import Console
+from game.logic import Logic
 
 
 class Director:
@@ -39,8 +39,8 @@ class Director:
         # available at the time.
 
         self.word = Word()
-        # self.console = Console()
-        # self.logic = Logic()
+        self.console = Console()
+        self.logic = Logic()
 
         # Game will continue unless endgame senario is reached.
         self.keep_playing = True
@@ -55,13 +55,11 @@ class Director:
 
         # Telling word the difficulty. I am assuming that I am calling the
         # method that sets the self.word.word attribute.
-        self.word.choosesAWord(difficulty)
+        self.word.get_word(difficulty)
 
         # Letting console know how long the word is so it can make the
-        # blank line an appropriate legnth. Though it would be funny,
-        # you do not have to use this as your actual method name. It is
-        # just a stand in while I'm writing code.
-        self.console.makeStringOfUnderscoresOfAppropriateSize(len(self.word.word))
+        # blank line an appropriate legnth.
+        self.console.underscores(len(self.word.word))
 
 
         while self.keep_playing:
@@ -73,15 +71,15 @@ class Director:
             # I am assuming that the letter_positions will be stored as an
             # attribute in logic for the rest of the code. Let me know if
             # you would like to change that.
-            self.logic.findLetterPositions(self.console.theLetter,self.word.word)
+            self.logic.findLetter(self.console.theLetter,self.word.word)
 
             # I am also assuming that you will keep track of how many bad
             # guesses the player has made based off of how many times logic
             # could not find the letter in the word. Assuming this, this
             # checks if the user has made a bad guess this round.
-            if self.total_wrongs < self.logic.mistakes:
-                self.total_wrongs = self.logic.mistakes
-                self.console.picture(total_wrongs)
+            if self.total_wrongs < self.logic.numMistake:
+                self.total_wrongs = self.logic.numMistake
+                self.console.picture(self.total_wrongs)
                 # The example had it end after 4 bad guesses; this can be
                 # changed if we want.
                 if total_wrongs == 4:
@@ -89,8 +87,8 @@ class Director:
             else:
                 # If the letter is in the word, console will be called to
                 # to put the letters where they belong.
-                self.console.updateString(self.console.theLetter,self.logic.letter_locations)
-
+                self.console.updateString(self.console.theLetter,self.logic.letterLocation)
+                self.console.picture(self.total_wrongs)
                 # Console would be the first to know if the word was
                 # completed so I'm assuming consol will have an attribute
                 # that knows if the user has won. Purhaps this condition
