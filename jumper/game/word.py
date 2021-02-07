@@ -1,5 +1,5 @@
 import random
-
+import os.path as _path_
 class Word():
     """ This class will have the responsibility for finding a word
     from a file that matches the length parameter set by the user.
@@ -27,6 +27,7 @@ class Word():
         self.short = []
         self.medium = []
         self.long = []
+        self.read_file()
 
 
     def read_file(self):
@@ -37,8 +38,7 @@ class Word():
         """
         # File to be read from
         # I couldn't get it to work using just "words.txt"
-        path = "C:/Users/tyler/Desktop/cse210/cse210-tc05/jumper/game/words.txt"
-### TODO: This will need to be changed as the program is put together ###
+        path = _path_.abspath("./jumper/game/words.txt")
         
         # opens the file, writes the contents to list, and closes the file
         with open(path, "r") as text:
