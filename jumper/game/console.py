@@ -45,7 +45,7 @@ class Console():
         # whether the letter is a bad guess or a good guess
         # and then passes back to me in the output function
         # if it was a bad guess
-        return self.guess('Guess a letter [a-z]: ')
+        self.guess = input('Guess a letter [a-z]: ')
 
 
     def underscores(self, word_length):
