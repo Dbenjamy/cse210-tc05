@@ -80,10 +80,8 @@ class Director:
             # could not find the letter in the word. Assuming this, this
             # checks if the user has made a bad guess this round.
             if self.total_wrongs < self.logic.mistakes:
-                self.console.printString()
-                self.console.cutString()
                 self.total_wrongs = self.logic.mistakes
-
+                self.console.picture(total_wrongs)
                 # The example had it end after 4 bad guesses; this can be
                 # changed if we want.
                 if total_wrongs == 4:
