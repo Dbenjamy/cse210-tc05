@@ -61,6 +61,7 @@ class Director:
         # blank line an appropriate legnth.
         self.console.underscoresMaker(len(self.word.word))
         self.console.picture(0)
+        print(self.console.underscores)
 
         while self.keep_playing:
 
@@ -77,6 +78,7 @@ class Director:
                 # game ends after four bad guesses
                 if self.total_wrongs == 4:
                     self.keep_playing = False
+                    print("Better luck next time!")
             else:
                 # If the letter is in the word, console will be called to
                 # to put the letters where they belong.

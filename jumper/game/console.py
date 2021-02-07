@@ -18,21 +18,26 @@ class Console():
 
     def askDifficulty(self):
 
-        level = input('What level of difficulty would you like? Easy (E), Medium (M), or Hard (H): ').lower
-        if level == 'e':
+        level = input('What level of difficulty would you like? Easy (E), Medium (M), or Hard (H): ')
+        if level == 'e' or level == "E":
             return 1
-        elif level == 'm':
+        elif level == 'm' or level == "M":
             return 2
-        return 3
-
+        elif level == 'h' or level == "H":
+            return 3
+        else:
+            print("Try again.")
+            self.askDifficulty()
 
     def askForGuess(self):
 
-        # pass letters in to director/logic and they decipher
-        # whether the letter is a bad guess or a good guess
-        # and then passes back to me in the output function
-        # if it was a bad guess
-        self.guess = input('Guess a letter [a-z]: ')
+        # Updates guess to whatever the user has guessed
+        theirInput = input('Guess a letter [a-z]: ')
+        if theirInput.isalpha() and len(theirInput) == 1:
+            self.guess = theirInput.lower
+        else:
+            print("Try again.")
+            self.askForGuess()
 
 
     def underscoresMaker(self, word_length):
@@ -61,7 +66,7 @@ class Console():
 
         #recieves number of mistakes from logic
         #and outputs current game scenario
-        pic_dict ={0:' _____',
+        pic_dict ={0:'  ___',
         1:' /___\\',
         2:' \   /',
         3:'  \ / ',
