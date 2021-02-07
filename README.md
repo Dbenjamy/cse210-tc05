@@ -35,3 +35,6 @@ root                    (project root folder)
 ## Authors
 ---
 Benjamin Davis, dav19018@byui.edu
+Robbie Swanson
+Tyler Shellman
+Moses Diaz
