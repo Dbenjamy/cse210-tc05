@@ -50,21 +50,23 @@ class Console():
 
     def underscores(self, word_length):
 
-        underscore_string = ""
         i = 0
         while i < word_length:
-            underscore_string.append("_")
+            self.underscores.append("_")
             i += 1
         
-        self.underscores = underscore_string
+        
 
 
     def update_string(self, theLetter, letter_locations):
         #recieves theLetter and letter_locations from director
-        for i in letter_locations:
+        print(letter_locations)
+        i = 0
+        while i < len(letter_locations):
+
             self.underscores[letter_locations[i]] = theLetter
 
-        return print(theLetter)
+        #return print(theLetter)
 
 
     def picture(self, mistakes):
@@ -72,7 +74,7 @@ class Console():
         #recieves number of mistakes from logic
         #and outputs current game scenario
         pic_dict ={0:' _____',
-        1:'|_____|',
+        1:' /___\\',
         2:' \   /',
         3:'  \ / ',
         4:'   0  ',   
@@ -88,3 +90,8 @@ class Console():
             print(pic_dict[new_mistake])
             new_mistake += 1
 
+# x = Console()
+# letterr = "a"
+# listy = [1,3]
+# x.underscores(5)
+# x.update_string(letterr,listy)

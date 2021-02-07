@@ -66,12 +66,12 @@ class Director:
             # I am assuming it will be a method that updates an attribute
             # in console. If you would rather have this method return a
             # responce, let me know.
-            self.console.asksForGuess()
+            self.console.askForGuess()
 
             # I am assuming that the letter_positions will be stored as an
             # attribute in logic for the rest of the code. Let me know if
             # you would like to change that.
-            self.logic.findLetter(self.console.theLetter,self.word.word)
+            self.logic.findLetter(self.console.guess,self.word.word)
 
             # I am also assuming that you will keep track of how many bad
             # guesses the player has made based off of how many times logic
@@ -87,7 +87,7 @@ class Director:
             else:
                 # If the letter is in the word, console will be called to
                 # to put the letters where they belong.
-                self.console.updateString(self.console.theLetter,self.logic.letterLocation)
+                self.console.update_string(self.console.guess,self.logic.letterLocation)
                 self.console.picture(self.total_wrongs)
                 # Console would be the first to know if the word was
                 # completed so I'm assuming consol will have an attribute
