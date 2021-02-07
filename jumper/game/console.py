@@ -1,6 +1,4 @@
 
-
-
 class Console():
     """A code template for a computer console. The responsibility of this 
     class of objects is to get text or numerical input and display text output.
@@ -15,18 +13,7 @@ class Console():
     def __init__(self):
         
         self.guess = 'z'
-
-    def first_image(self):
-        x = """  
-         ___  
-        /___\ 
-        \   /
-         \ / 
-          0   
-         /|\  
-         / \  
-        """
-        return print(x)
+        self.underscores = ""
 
 
     def askDifficulty(self):
@@ -48,11 +35,11 @@ class Console():
         self.guess = input('Guess a letter [a-z]: ')
 
 
-    def underscores(self, word_length):
+    def underscoresMaker(self, word_length):
 
         i = 0
         while i < word_length:
-            self.underscores.append("_")
+            self.underscores += "_"
             i += 1
         
         
@@ -60,14 +47,15 @@ class Console():
 
     def update_string(self, theLetter, letter_locations):
         #recieves theLetter and letter_locations from director
-        print(letter_locations)
         i = 0
+        workingString = self.underscores
         while i < len(letter_locations):
-
-            self.underscores[letter_locations[i]] = theLetter
-
-        #return print(theLetter)
-
+            RR = letter_locations[i]
+            stringList = list(workingString)
+            stringList[RR] = theLetter
+            workingString = "".join(stringList)
+            i += 1
+        self.underscores = workingString
 
     def picture(self, mistakes):
 
@@ -89,9 +77,3 @@ class Console():
 
             print(pic_dict[new_mistake])
             new_mistake += 1
-
-# x = Console()
-# letterr = "a"
-# listy = [1,3]
-# x.underscores(5)
-# x.update_string(letterr,listy)

@@ -38,10 +38,3 @@ class Logic():
         if countTimes == 0: # if the letters never matched, it was a bad guess
             self.numMistake += 1
         self.letterLocation = newString
-        
-# to be removed as the program is completed.
-# word = "horse"
-# guess = "a"     
-# run = Logic()
-# run.findLetter(guess, word)
-

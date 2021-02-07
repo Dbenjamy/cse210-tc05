@@ -38,7 +38,6 @@ class Word():
             Self: an instance of Word
         """
         # File to be read from
-        # I couldn't get it to work using just "words.txt"
         path = _path_.abspath("./jumper/game/words.txt")
         # opens the file, writes the contents to list, and closes the file
         with open(path, "r") as text:
@@ -80,23 +79,13 @@ class Word():
 
         if difficulty == 1:         # shortest
             limit = len(self.short)
-            print(limit)
             index = random.randint(0, limit-1)
             self.word = self.short[index]
         elif difficulty == 2:       # medium
             limit = len(self.medium)
-            print(limit)
             index = random.randint(0, limit-1)
             self.word = self.medium[index]
         elif difficulty == 3:       # longest
             limit = len(self.long)
-            print(limit)
             index = random.randint(0, limit-1)
             self.word = self.long[index]
-
-
-# These are for testing purposes only and should be deleted as the program is completed. 
-# director = Word()
-# director.read_file()
-# director.set_list()
-# director.get_word(3)

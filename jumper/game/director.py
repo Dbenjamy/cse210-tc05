@@ -59,30 +59,23 @@ class Director:
 
         # Letting console know how long the word is so it can make the
         # blank line an appropriate legnth.
-        self.console.underscores(len(self.word.word))
+        self.console.underscoresMaker(len(self.word.word))
         self.console.picture(0)
 
         while self.keep_playing:
-            # I am assuming it will be a method that updates an attribute
-            # in console. If you would rather have this method return a
-            # responce, let me know.
+
             self.console.askForGuess()
 
-            # I am assuming that the letter_positions will be stored as an
-            # attribute in logic for the rest of the code. Let me know if
-            # you would like to change that.
+            # telling logic to find letter locations
             self.logic.findLetter(self.console.guess,self.word.word)
 
-            # I am also assuming that you will keep track of how many bad
-            # guesses the player has made based off of how many times logic
-            # could not find the letter in the word. Assuming this, this
-            # checks if the user has made a bad guess this round.
+            # checking if there were any more mistakes made
             if self.total_wrongs < self.logic.numMistake:
                 self.total_wrongs = self.logic.numMistake
                 self.console.picture(self.total_wrongs)
-                # The example had it end after 4 bad guesses; this can be
-                # changed if we want.
-                if total_wrongs == 4:
+
+                # game ends after four bad guesses
+                if self.total_wrongs == 4:
                     self.keep_playing = False
             else:
                 # If the letter is in the word, console will be called to
@@ -90,11 +83,11 @@ class Director:
                 self.console.update_string(self.console.guess,self.logic.letterLocation)
                 self.console.picture(self.total_wrongs)
                 # Console would be the first to know if the word was
-                # completed so I'm assuming consol will have an attribute
+                # completed, consol will have an attribute
                 # that knows if the user has won. Purhaps this condition
                 # could be checked by searching the string for "_" and
                 # setting wonTheGame to True if it cannot find a "_"
-                if self.console.wonTheGame == True:
-                    self.console.displayWin()
-                    self.keep_playing = False
-            
+            print(self.console.underscores)
+            if not ("_" in self.console.underscores):
+                print("Congradulations!")
+                self.keep_playing = False
