@@ -34,7 +34,7 @@ class Console():
         # Updates guess to whatever the user has guessed
         theirInput = input('Guess a letter [a-z]: ')
         if theirInput.isalpha() and len(theirInput) == 1:
-            self.guess = theirInput.lower
+            self.guess = theirInput.lower()
         else:
             print("Try again.")
             self.askForGuess()
